@@ -395,7 +395,8 @@ class CreateAppointmentSerializer(serializers.ModelSerializer):
 class DoctorCategorySerializer(serializers.ModelSerializer):
     doctor_name = serializers.CharField(source='doctor.get_full_name', read_only=True)
     category_name = serializers.CharField(source='category.name', read_only=True)
+    category_clinic_name = serializers.CharField(source='category.clinic', read_only=True)
 
     class Meta:
         model = DoctorCategory
-        fields = ['id', 'doctor', 'category', 'doctor_name', 'category_name', 'created_at', 'updated_at']
+        fields = ['id', 'doctor', 'category', 'doctor_name', 'category_name', 'category_clinic_name', 'created_at', 'updated_at']
